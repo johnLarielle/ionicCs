@@ -1,9 +1,12 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'caseStudy',
-  webDir: 'dist'
+  appId: 'com.elibrary.app',
+  appName: 'eLibrary',
+  webDir: 'dist',
+  server: {
+    androidScheme: 'https'
+  }
 };
 
 export default config;
