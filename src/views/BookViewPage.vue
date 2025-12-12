@@ -118,22 +118,14 @@
           <ion-icon :icon="homeOutline"></ion-icon>
           <span>Home</span>
         </button>
+        <button class="nav-item center-btn" @click="goToAddBook">
+          <div class="center-icon">
+            <ion-icon :icon="addOutline"></ion-icon>
+          </div>
+        </button>
         <button class="nav-item" @click="goToBooks">
           <ion-icon :icon="libraryOutline"></ion-icon>
           <span>Library</span>
-        </button>
-        <button class="nav-item center-btn">
-          <div class="center-icon">
-            <ion-icon :icon="searchOutline"></ion-icon>
-          </div>
-        </button>
-        <button class="nav-item">
-          <ion-icon :icon="heartOutline"></ion-icon>
-          <span>Favorites</span>
-        </button>
-        <button class="nav-item">
-          <ion-icon :icon="personOutline"></ion-icon>
-          <span>Profile</span>
         </button>
       </div>
     </ion-content>
@@ -157,9 +149,7 @@ import {
   star,
   homeOutline,
   libraryOutline,
-  searchOutline,
-  heartOutline,
-  personOutline
+  addOutline
 } from 'ionicons/icons';
 import { useBooks, type Book } from '@/stores/useBooks.api';
 import { useRouter, useRoute } from 'vue-router';
@@ -194,6 +184,10 @@ const goHome = () => {
 
 const goToBooks = () => {
   router.push('/books');
+};
+
+const goToAddBook = () => {
+  router.push('/books/add');
 };
 
 const editBook = () => {

@@ -4,27 +4,7 @@
       <div class="home-container">
         <!-- Header with Profile -->
         <div class="header-section">
-          <div class="profile-header">
-            <div class="profile-info">
-              <div class="avatar">
-                <ion-icon :icon="personOutline"></ion-icon>
-              </div>
-              <h1 class="greeting">Hello User!</h1>
-            </div>
-            <ion-button fill="clear" class="notification-btn">
-              <ion-icon :icon="notificationsOutline"></ion-icon>
-            </ion-button>
-          </div>
-
-          <!-- Search Bar -->
-          <div class="search-container">
-            <ion-searchbar
-              v-model="searchQuery"
-              placeholder="Search by Book title, Author, etc"
-              @ionFocus="goToBooks"
-              class="custom-searchbar"
-            ></ion-searchbar>
-          </div>
+          <h1 class="greeting">Welcome to Library</h1>
         </div>
 
         <!-- Top Available Books -->
@@ -111,22 +91,14 @@
           <ion-icon :icon="homeOutline"></ion-icon>
           <span>Home</span>
         </button>
-        <button class="nav-item" @click="goToBooks">
-          <ion-icon :icon="libraryOutline"></ion-icon>
-          <span>Library</span>
-        </button>
         <button class="nav-item center-btn" @click="goToAddBook">
           <div class="center-icon">
             <ion-icon :icon="addOutline"></ion-icon>
           </div>
         </button>
         <button class="nav-item" @click="goToBooks">
-          <ion-icon :icon="searchOutline"></ion-icon>
-          <span>Search</span>
-        </button>
-        <button class="nav-item">
-          <ion-icon :icon="personOutline"></ion-icon>
-          <span>Profile</span>
+          <ion-icon :icon="libraryOutline"></ion-icon>
+          <span>Library</span>
         </button>
       </div>
     </ion-content>
@@ -139,16 +111,12 @@ import {
   IonPage,
   IonContent,
   IonIcon,
-  IonButton,
-  IonSearchbar
+  IonButton
 } from '@ionic/vue';
 import {
   bookOutline,
   libraryOutline,
   addOutline,
-  searchOutline,
-  personOutline,
-  notificationsOutline,
   homeOutline,
   flaskOutline,
   schoolOutline,
@@ -162,7 +130,6 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const { books, loadBooks } = useBooks();
-const searchQuery = ref('');
 
 // Load books from database when component mounts
 onMounted(async () => {
@@ -233,61 +200,15 @@ const filterByGenre = (genre: string) => {
 /* Header Section */
 .header-section {
   padding: 20px 20px 24px;
-}
-
-.profile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.avatar ion-icon {
-  font-size: 24px;
+  text-align: center;
 }
 
 .greeting {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffffff;
   margin: 0;
-}
-
-.notification-btn {
-  --color: #ffffff;
-  font-size: 24px;
-}
-
-/* Search Container */
-.search-container {
-  margin-top: 16px;
-}
-
-.custom-searchbar {
-  --background: rgba(255, 255, 255, 0.15);
-  --border-radius: 12px;
-  --box-shadow: none;
-  --color: #ffffff;
-  --placeholder-color: rgba(255, 255, 255, 0.6);
-  --icon-color: rgba(255, 255, 255, 0.6);
-  padding: 0;
+  letter-spacing: -0.02em;
 }
 
 /* Section Styles */
